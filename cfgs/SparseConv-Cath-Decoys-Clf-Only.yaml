@@ -1,0 +1,49 @@
+# General
+manualSeed: 123
+debug:
+from_epoch: 0
+
+# Data
+dataset: cath_decoys
+data_root: /CrossBind-main/datasets/cath_decoys/
+filename_suffix: xyzlabel
+test_ratio: 0.1
+#mini_data_num: 10000
+
+# Input
+use_coords: False # wheither use xyz as input features
+voxel_size: 0.1 # voxel size in voxelization (default: 0.2A)
+full_scale: 4096 # the full resolution of sparse tensor (default: 4096x4096x4096)
+max_npoint: 10000000 # max point number in each batch (default: 10000000)
+mode: 4 # mode to aggregate points in each voxel (4=mean)
+
+# Model
+model: sparseconvunet
+m: 32 # unit for channel dimension
+block_residual: False # wheither use residual blocks
+block_reps: 1 # repeat of residual block
+
+# Traning
+batch_size: 8
+num_workers: 8
+
+# optimizer
+optimizer: adam # ['adam', 'sgd', 'adamW']
+learning_rate: 0.001
+weight_decay: 1e-6
+momentum: 0.95
+
+# scheduler
+lr_scheduler: cosine # ['step', 'cosine']
+nepoch: 150
+warmup_epoch: 0
+lr_decay_steps: 50
+lr_decay_rate: 0.5
+
+# classification:
+#   num_bins: 5 # the number of bin to cut the label from 0 to 1
+#   weight: 1
+
+regression:
+  loss: smooth_l1
+  weight: 1
