@@ -1,5 +1,7 @@
 ### CrossBind
-Codes of protein residue binding prediction.
+Official Pytorch implementation of CrossBind: Collaborative Cross-Modal Identification of Protein Nucleic-Acid-Binding Residues
+![Figure_abstract](./Figure_abstract.png)
+
 ## Getting Started
 ### Setup
 (1) Pytorch version.
@@ -49,6 +51,3 @@ python CrossBind.py --log_dir SparseConv_default --cfg_file cfgs/SparseConv-Cath
 ### Visualization Case
 
 ![Figure_case](./Figure_case.png)
-
-### License
-This source code is licensed under the Apache license found in the `LICENSE` file in the root directory of this source tree.
