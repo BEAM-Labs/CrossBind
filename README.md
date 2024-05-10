@@ -1,14 +1,17 @@
 
+
+Update:  The training code is now open source and updated in the ProteinDecoy-main.zip file
+（ We keep an example file for all the files: .pdb, .xyz, DNA_feature( HMM, PSSM, SS) 
+The core training and model files are train_esm_mix.py / sparseconvunet_inference.py
+
+
 # CrossBind
 
 Official Pytorch implementation of CrossBind: Collaborative Cross-Modal Identification of Protein Nucleic-Acid-Binding Residues.
 
 ![Figure_abstract](./Figure_abstract.png)
 
-########
-Update:  The training code is now open source and updated in the ProteinDecoy-main.zip file
-（ We keep an example file for all the files: .pdb, .xyz, DNA_feature( HMM, PSSM, SS) 
-The core training and model files are train_esm_mix.py / sparseconvunet_inference.py
+
 
 
 ## Getting Started
