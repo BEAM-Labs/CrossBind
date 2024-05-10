@@ -1,8 +1,15 @@
+
 # CrossBind
 
 Official Pytorch implementation of CrossBind: Collaborative Cross-Modal Identification of Protein Nucleic-Acid-Binding Residues.
 
 ![Figure_abstract](./Figure_abstract.png)
+
+########
+Update:  The training code is now open source and updated in the ProteinDecoy-main.zip file
+（ We keep an example file for all the files: .pdb, .xyz, DNA_feature( HMM, PSSM, SS) 
+The core training and model files are train_esm_mix.py / sparseconvunet_inference.py
+
 
 ## Getting Started
 
@@ -54,25 +61,8 @@ To prepare your data for CrossBind, perform the following:
     python prepare_pdb_to_xyz.py
     ```
 
-### Cross Model
 
-For using pre-trained models and representations:
-
-1. **Load Pre-trained Structure Representation:**
-
-   DNA_127 Structure:
-
-    ```shell
-    models/DNA_127_Structure.pkl
-    ```
-
-   DNA_181 Test:
-
-    ```shell
-    models/Test_181.pkl
-    ```
-
-2. **Load ESM2 Representation:**
+**Load ESM2 Representation:**
 
    For details on loading the ESM2 representation, refer to the documentation available at [GitHub - facebookresearch/esm](https://github.com/facebookresearch/esm).
 
@@ -80,11 +70,13 @@ For using pre-trained models and representations:
 
 To fine-tune the CrossBind model, you can customize the model settings in the configuration files located in `cfgs/*.yaml`. Select the appropriate configuration file for your needs.
 
+
 - **Run the full version of CrossBind:**
 
     ```shell
-    python CrossBind.py --log_dir SparseConv_default --cfg_file cfgs/SparseConv-Cath-Decoys-Clf-Only.yaml --gpu 0
+    python train_esm_mix.py --log_dir SparseConv_default --cfg_file cfgs/SparseConv-Cath-Decoys-Clf-Only.yaml --gpu 0
     ```
+    if you want pre-train the point encoder with a self-supervised way, use train_pointsite_contrastive.py first, and load the pre-trained 'pkl' model in train_esm_mix.py.
 
 ### Visualization Case
 
